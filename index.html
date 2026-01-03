@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egocentric Annotation Project - Q&A Answer Key</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #ffffff;
+            font-size: 2.5em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .qa-item {
+            margin-bottom: 35px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #667eea;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .qa-item:hover {
+            background-color: #f0f2ff;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+        
+        .qa-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 0.95em;
+        }
+        
+        .question {
+            color: #333;
+            font-weight: 600;
+            font-size: 1.05em;
+            margin: 10px 0;
+            margin-left: 50px;
+        }
+        
+        .answer-label {
+            color: #667eea;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+            margin: 12px 0 8px 50px;
+        }
+        
+        .answer {
+            color: #555;
+            font-size: 0.98em;
+            margin-left: 50px;
+            padding: 10px 0;
+            line-height: 1.7;
+        }
+        
+        footer {
+            background-color: #f5f5f5;
+            padding: 20px 40px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .qa-item {
+                padding: 15px;
+            }
+            
+            .question, .answer, .answer-label {
+                margin-left: 0;
+            }
+            
+            .qa-number {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Egocentric Annotation Project</h1>
+            <h1 style="font-size: 1.8em; margin-top: 10px; opacity: 0.95;">Q&A Answer Key</h1>
+
+            <!-- Search Bar -->
+            <div style="margin-top: 20px;">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search questions or answers..."
+                    style="
+                        width: 100%;
+                        max-width: 500px;
+                        padding: 10px 14px;
+                        border-radius: 25px;
+                        border: 1px solid #ddd;
+                        outline: none;
+                        font-size: 0.95em;
+                        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+                    "
+                    onkeyup="filterQuestions()"
+                />
+            </div>
+        </header>
+        
+        <div class="content" id="qaContainer">
+            <div class="qa-item">
+                <span class="qa-number">1</span>
+                <div class="question">What type of annotation is required for this project - granular or coarse?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Coarse - focus on main actions, minute details are not required</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">2</span>
+                <div class="question">What is the primary focus of annotations in this project?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Main actions and hand dexterity relevant to the task</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">3</span>
+                <div class="question">If a label says "pick up book" without specifying which hand was used, is this acceptable?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Yes - this is a completely valid annotation</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">4</span>
+                <div class="question">Are labels using "lift", "pick up", and "grab" interchangeably acceptable?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Yes - flexible terminology is encouraged</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">5</span>
+                <div class="question">How should labels be written?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">As direct instructions (e.g., "pick up the cup")</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">6</span>
+                <div class="question">The ego is lifting a shirt and shaking it out. Which labels are acceptable?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">"Straighten the shirt", "Pick up the shirt and move it back and forth", or "Lift the shirt and shake it out" - all acceptable</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">7</span>
+                <div class="question">The ego picks up a mat from the floor and places it on the table. Which label is acceptable?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">"Pick up mat and place on table" or "Move mat to table" - must capture both actions</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">8</span>
+                <div class="question">Can you use relative positions like "left" and "right" in labels?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Yes - as long as they are accurate from the ego's point of view</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">9</span>
+                <div class="question">If one annotator calls an object "orange box" and another calls it "yellow box", is this a problem?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">No - inconsistent naming is acceptable unless clearly incorrect (e.g., calling orange "blue")</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">10</span>
+                <div class="question">What distinguishes a MAJOR action (must be labeled) from a MINOR action (doesn't need labeling)?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Major actions directly contribute to the task goal; minor actions are incidental or transitional</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">11</span>
+                <div class="question">A video contains PII (Personally Identifiable Information) such as a person's face. What should you do?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Flag as "Contains PII", do NOT annotate the PII segment, but QC the rest of the task normally</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">12</span>
+                <div class="question">What is required for timestamps to be correct?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Begin timestamp: when hands start reaching toward object. End timestamp: when hands disengage. Must be accurate</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">13</span>
+                <div class="question">When multiple events happen at once, what must the labels capture?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">All major actions contributing to the goal</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">14</span>
+                <div class="question">Is it acceptable to use sequence words like "another" and "next" for repeated actions?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Yes - as long as each action and label is accurate for the given timestamp</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">15</span>
+                <div class="question">If a label describes one action in a segment that contains multiple actions, is this acceptable?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Yes - but only if all MAJOR actions are captured; minor/incidental actions don't need labeling</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">16</span>
+                <div class="question">When should a label be "idle" or "no action"?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Only when both hands are still or not interacting with objects</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">17</span>
+                <div class="question">The ego is walking to move dishes from one table to another. How should this walking be labeled?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Label as part of the task - walking is necessary and related to the task</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">18</span>
+                <div class="question">A label says "pick up weight and frame" but only the weight was touched. What should happen?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Reject - this is a half-true label / hallucination</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">19</span>
+                <div class="question">The ego's movement suggests they're about to put down a phone, but they never actually do. Can the label say "put down the phone"?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">No - label only what can be seen actually happening in the video</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">20</span>
+                <div class="question">An action briefly leaves the camera's frame (e.g., placing item on top shelf where only lower shelf is visible). Is this acceptable?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">Yes - if the action is clearly happening and can be confirmed from on-screen information</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">21</span>
+                <div class="question">Should timestamps that are off by a few seconds (within tolerance) be flagged as incorrect?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">No - only large/clearly wrong timestamp mistakes should be flagged</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">22</span>
+                <div class="question">The subject picks up a red mug from the sink while a blue mug sits on the counter in-frame. Which label is correct?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">"pick up mug from sink" or "pick up red mug"</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">23</span>
+                <div class="question">The subject washes their hands, checks their watch, and adjusts their head-mounted camera. How should this be labeled?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">"no action"</div>
+            </div>
+
+            <div class="qa-item">
+                <span class="qa-number">24</span>
+                <div class="question">The subject slightly adjusts the corners of a t-shirt to see the design more clearly. Which label is appropriate?</div>
+                <div class="answer-label">Correct Answer:</div>
+                <div class="answer">"adjust t-shirt" or "straighten t-shirt"</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>✨ Egocentric Annotation Project - Q&A Answer Key | Professional Guide for Annotators</p>
+        </footer>
+    </div>
+
+    <script>
+        function filterQuestions() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const items = document.querySelectorAll('.qa-item');
+            
+            items.forEach(item => {
+                const questionText = item.querySelector('.question').textContent.toLowerCase();
+                const answerText = item.querySelector('.answer').textContent.toLowerCase();
+                
+                if (questionText.includes(filter) || answerText.includes(filter)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
